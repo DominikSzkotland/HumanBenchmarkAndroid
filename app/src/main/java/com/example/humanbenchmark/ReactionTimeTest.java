@@ -2,73 +2,78 @@ package com.example.humanbenchmark;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.List;
 import java.util.Random;
 
 public class ReactionTimeTest extends AppCompatActivity {
-    List<Integer> results;
-    Integer roundCounter = -1;
-    Integer roundNumber = 5;
-    CountDownTimer timer;
+
+    private Button redGreenButton;
+    private long startTime = 0;
+    private long stopTime = 0;
+    private boolean questionRunning = false;
+    private boolean answerRunning = false;
+    private Handler handler = new Handler();
+    private Runnable waitingForAnswer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_time_test);
-        Button redGreenButton = findViewById(R.id.redGreenButton);
+
+        redGreenButton = findViewById(R.id.redGreenButton);
         redGreenButton.setText("This is\n\"Reaction Time Test\"\nClick To start!");
-        redGreenButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        roundCounter += 1;
-                        if(roundCounter > roundNumber) {
-                            showResults();
-                        }
-                        else {
-                            playNextRound();
-                        }
+
+        redGreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (questionRunning || answerRunning) {
+                    if (questionRunning) {
+                        redGreenButton.setText("Too fast!\nClick to try again!");
+                        handler.removeCallbacks(waitingForAnswer);
+                        questionRunning = false;
+                    } else if (answerRunning) {
+                        stopTime = System.currentTimeMillis();
+                        long reactionTime = stopTime - startTime;
+                        redGreenButton.setText("Time: " + reactionTime + "ms\nClick to try again!");
+                        answerRunning = false;
                     }
-
-                    private void playNextRound() {
-                        redGreenButton.setBackgroundResource(R.drawable.red_square);
-                        if (timer != null) {
-
-                            timer.cancel();
-                            timer = null;
-                        } else {
-                            Random random = new Random();
-                            int randomTime = random.nextInt(6000) + 3000;
-                            startCountdown(randomTime);
-                        }
-                    }
-                    private void showResults() {
-
-                    }
-
-                    void startCountdown(long millisInFuture) {
-                        // Utwórz nowy obiekt CountDownTimer
-                        timer = new CountDownTimer(millisInFuture, 1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-
-                            }
-
-                            @Override
-                            public void onFinish() {
-                                redGreenButton.setBackgroundResource(R.drawable.green_square);
-                            }
-                        };
-
-                        // Uruchom odliczanie
-                        timer.start();
-                    }
+                } else {
+                    startQuestion();
                 }
-        );
+            }
+        });
+    }
+
+    private int getNewWaitTime() {
+        return new Random().nextInt(4500) + 3000;
+    }
+
+    private void startQuestion() {
+        questionRunning = true;
+        redGreenButton.setBackgroundResource(R.drawable.red_square);
+        redGreenButton.setText("Wait!");
+
+        int waitTime = getNewWaitTime();
+        waitingForAnswer = new Runnable() {
+            @Override
+            public void run() {
+                if (questionRunning) {
+                    startAnswer();
+                }
+            }
+        };
+        handler.postDelayed(waitingForAnswer, waitTime);
+    }
+
+    private void startAnswer() {
+        questionRunning = false;
+        answerRunning = true;
+        redGreenButton.setBackgroundResource(R.drawable.green_square);
+        redGreenButton.setText("Click now!");
+        startTime = System.currentTimeMillis();
     }
 }
