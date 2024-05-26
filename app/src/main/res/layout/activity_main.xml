@@ -23,8 +23,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textSize="40dp"
-                android:text="Human Benchmark" />
+
+                android:textSize="40sp"
+                android:text="@string/app_name" />
         </TableRow>
 
         <TableRow
@@ -32,53 +33,57 @@
             android:layout_height="0dp"
             android:layout_weight="2">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_weight="1"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:id="@+id/reactionTimeButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Reaction Time Test"
+                android:text="@string/reactionTest_name"
+                android:padding="5dp"
                 android:background="@drawable/square_button"
                 android:layout_margin="10dp"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_weight="1"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:id="@+id/simonMemoryTest"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="Simon Memory Test"
-                android:background="@drawable/square_button"
-                android:layout_margin="10dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-
-            <Button
-                android:layout_weight="1"
-                android:textSize="25dp"
-                android:id="@+id/button6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="Number Sequence Test"
+                android:text="@string/simonTest_name"
+                android:padding="5dp"
                 android:background="@drawable/square_button"
                 android:layout_margin="10dp"
                 />
 
-            <Button
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_weight="1"
-                android:textSize="25dp"
+                android:textSize="25sp"
+                android:id="@+id/numberSequenceTestButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/numberTest_name"
+                android:padding="5dp"
+                android:background="@drawable/square_button"
+                android:layout_margin="10dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_weight="1"
+                android:textSize="25sp"
                 android:id="@+id/invisibleButton"
                 android:visibility="invisible"
                 android:enabled="false"
                 android:layout_width="0dp"
+                android:padding="5dp"
                 android:layout_height="match_parent"
-                android:text="invisibleButton"
                 android:layout_margin="10dp"/>
 
         </TableRow>
