@@ -1,7 +1,6 @@
 package com.example.humanbenchmark;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class SimonMemoryTest extends AppCompatActivity {
