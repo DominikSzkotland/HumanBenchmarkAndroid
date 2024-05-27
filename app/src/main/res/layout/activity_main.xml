@@ -16,14 +16,12 @@
             android:layout_height="0dp"
             android:layout_weight="3">
 
-
             <TextView
                 android:id="@+id/textView"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-
                 android:textSize="40sp"
                 android:text="@string/app_name" />
         </TableRow>
@@ -42,7 +40,7 @@
                 android:text="@string/reactionTest_name"
                 android:padding="5dp"
                 android:background="@drawable/square_button"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_weight="1"
@@ -53,8 +51,7 @@
                 android:text="@string/simonTest_name"
                 android:padding="5dp"
                 android:background="@drawable/square_button"
-                android:layout_margin="10dp"
-                />
+                android:layout_margin="10dp" />
 
         </TableRow>
 
