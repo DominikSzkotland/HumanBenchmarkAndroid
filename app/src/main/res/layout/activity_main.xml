@@ -40,6 +40,7 @@
                 android:text="@string/reactionTest_name"
                 android:padding="5dp"
                 android:background="@drawable/square_button"
+                android:textColor="@color/white"
                 android:layout_margin="10dp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -51,6 +52,7 @@
                 android:text="@string/simonTest_name"
                 android:padding="5dp"
                 android:background="@drawable/square_button"
+                android:textColor="@color/white"
                 android:layout_margin="10dp" />
 
         </TableRow>
@@ -69,6 +71,7 @@
                 android:text="@string/numberTest_name"
                 android:padding="5dp"
                 android:background="@drawable/square_button"
+                android:textColor="@color/white"
                 android:layout_margin="10dp"
                 />
 

@@ -3,4 +3,5 @@
     <string name="reactionTest_name">Reaction time test</string>
     <string name="simonTest_name">Simon memory test</string>
     <string name="numberTest_name">Number sequence test</string>
+    <string name="blank"></string>
 </resources>

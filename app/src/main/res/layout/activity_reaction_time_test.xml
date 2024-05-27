@@ -15,5 +15,6 @@
         android:textSize="40sp"
         android:padding="5dp"
         android:background="@drawable/square_button"
+        android:textColor="@color/white"
         android:text="@string/reactionTest_name" />
 </LinearLayout>
