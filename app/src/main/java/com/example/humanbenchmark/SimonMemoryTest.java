@@ -6,12 +6,10 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -146,13 +144,11 @@ public class SimonMemoryTest extends AppCompatActivity {
     {
         answers.clear();
         changeButtonsEnabledOption(buttons, false);
-        Log.d("Iteration","counter: -1");
         showQue(0);
     }
 
     void showQue(int counter)
     {
-        Log.d("Iteration","counter: "+counter+" simonQue.size(): "+simonQue.size());
         if (counter < simonQue.size())
         {
             new Handler().postDelayed(new Runnable() {
@@ -195,7 +191,6 @@ public class SimonMemoryTest extends AppCompatActivity {
     private int getRandomIndex(int max)
     {
         int result = new Random().nextInt(max);
-        Log.d("RANDOM", String.valueOf(result));
         return result;
     }
 
