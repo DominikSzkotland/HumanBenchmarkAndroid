@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
       <TextView
+          android:id="@+id/simonTitleTextView"
           android:layout_weight="1"
           android:layout_height="match_parent"
           android:layout_width="0dp"
@@ -95,6 +96,8 @@
           android:layout_width="0dp"
           android:layout_height="match_parent"
           android:text="@string/blank"
+          android:textColor="@color/white"
+          android:textSize="40sp"
           android:background="@drawable/square_button"
           android:layout_margin="5dp"
           />
