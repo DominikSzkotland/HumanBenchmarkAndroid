@@ -23,6 +23,7 @@ public class NumberSequenceTest extends AppCompatActivity {
     private Handler handler;
     private Runnable runnable;
     private int currentLength = 1;
+    private int waitTime = 2000;
     private String currentNumber;
 
     @Override
@@ -57,10 +58,11 @@ public class NumberSequenceTest extends AppCompatActivity {
                 inputField.setVisibility(View.VISIBLE);
                 checkButton.setVisibility(View.VISIBLE);
                 inputField.setText("");
+                waitTime += 425;
             }
         };
 
-        handler.postDelayed(runnable, 5000);
+        handler.postDelayed(runnable, waitTime);
     }
 
     public void checkNumber(View view) {
@@ -87,6 +89,7 @@ public class NumberSequenceTest extends AppCompatActivity {
         numberDisplay.setText("Game Over! Your score is: " + String.valueOf(currentLength - 1));
         checkButton.setText("Try again");
         currentLength = 1;
+        waitTime = 2500;
         isRestarted = true;
     }
 
